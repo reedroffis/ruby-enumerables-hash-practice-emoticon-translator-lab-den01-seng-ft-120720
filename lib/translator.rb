@@ -27,7 +27,7 @@ end
 
 def get_english_meaning(yml_file, japanese_emoticon)
   new_hash = load_library(yml_file)
-  english_output_name = 'Sorry, that emoticon was not found'
+  english_name = 'Sorry, that emoticon was not found'
   new_hash.each do |emoticon_name, emoticon_hash|
     if emoticon_hash[:japanese] == japanese_emoticon
       english_name = emoticon_name
