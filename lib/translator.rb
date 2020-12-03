@@ -16,14 +16,22 @@ end
 
 def get_japanese_emoticon(yml_file, english_emoticon)
   new_hash = load_library(yml_file)
-  japanese_output_emoticon = ''
+  japanese_output_emoticon = 'Sorry, that emoticon was not found'
   new_hash.each do |emoticon_name, emoticon_hash|
     if emoticon_hash[:english] == english_emoticon
       japanese_output_emoticon = emoticon_hash[:japanese]
+    end
   end
   japanese_output_emoticon
 end
 
 def get_english_meaning(yml_file, japanese_emoticon)
-  # code goes here
+  new_hash = load_library(yml_file)
+  english_name = 'Sorry, that emoticon was not found'
+  new_hash.each do |emoticon_name, emoticon_hash|
+    if emoticon_hash[:japanese] == japanese_emoticon
+      english_name = emoticon_name
+    end
+  end
+  english_name
 end
